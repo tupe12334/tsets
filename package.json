@@ -61,7 +61,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/tupe12334/tsets.git"
+    "url": "git+https://github.com/tupe12334/tsets.git"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "directories": {
+    "example": "examples"
+  }
 }
