@@ -1,6 +1,6 @@
 {
   "name": "tsets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript library for mathematical set operations with type-safe disjoint unions and compile-time checking - types only",
   "type": "module",
   "main": "dist/index.js",
@@ -12,9 +12,14 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts", 
+        "default": "./dist/index.cjs"
+      }
     }
   },
   "scripts": {
