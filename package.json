@@ -1,0 +1,67 @@
+{
+  "name": "tsets",
+  "version": "1.0.0",
+  "description": "TypeScript library for mathematical set operations with type-safe disjoint unions and compile-time checking - types only",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "homepage": "https://github.com/tupe12334/tsets#readme",
+  "bugs": {
+    "url": "https://github.com/tupe12334/tsets/issues"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "vite build && tsc --emitDeclarationOnly --declaration",
+    "dev": "vite build --watch",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview",
+    "release": "release-it",
+    "release:dry": "release-it --dry-run"
+  },
+  "keywords": [
+    "typescript",
+    "types",
+    "sets",
+    "union",
+    "intersection",
+    "disjoint",
+    "math",
+    "type-safe",
+    "compile-time"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.40.0",
+    "@typescript-eslint/parser": "^8.40.0",
+    "eslint": "^9.0.0",
+    "eslint-config-agent": "^1.0.23",
+    "release-it": "^17.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^4.0.0",
+    "vitest": "^2.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tupe12334/tsets.git"
+  },
+  "sideEffects": false
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://unpkg.com/release-it/schema/release-it.json",
+  "git": {
+    "commitMessage": "chore: release v${version}",
+    "tagName": "v${version}",
+    "commit": true,
+    "tag": true,
+    "push": true,
+    "requireCleanWorkingDir": true,
+    "requireBranch": false
+  },
+  "github": {
+    "release": false,
+    "releaseName": "v${version}",
+    "web": true
+  },
+  "npm": {
+    "publish": false,
+    "ignoreVersion": false,
+    "allowSameVersion": false,
+    "tag": null
+  },
+  "hooks": {
+    "before:init": [
+      "pnpm run typecheck",
+      "pnpm run test:run"
+    ],
+    "after:bump": [
+      "pnpm run build"
+    ],
+    "after:git:release": [
+      "echo \"\\n🎉 Release v${version} prepared!\"",
+      "echo \"\\n📦 To publish to npm, run: pnpm publish\"",
+      "echo \"\\n🔗 Or for beta: pnpm publish --tag beta\""
+    ]
+  },
+  "plugins": {},
+  "verbose": false
+}
