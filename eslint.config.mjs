@@ -44,10 +44,11 @@ export default [
           ignoreRestArgs: true,
         },
       ],
-      // Disable single-export for types-only library where related types are grouped
-      'single-export/single-export': 'off',
       // This is a types-only library, so max-lines can be more lenient for complex type files
-      'max-lines': ['error', { max: 600, skipBlankLines: true, skipComments: true }],
+      'max-lines': [
+        'error',
+        { max: 600, skipBlankLines: true, skipComments: true },
+      ],
     },
   },
   {
