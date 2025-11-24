@@ -13,7 +13,6 @@ import type {
   CartesianProduct,
   SymmetricDifference,
   SetComplement,
-  DisjointUnion,
 } from '../types'
 import type { DisjointUnion as DisjointUnionType } from '../disjoint'
 
@@ -281,6 +280,8 @@ describe('Set Object Support', () => {
 
   describe('DisjointUnion with Set objects', () => {
     it('should create disjoint union from Set types', () => {
+      // Using type instead of interface to get implicit index signature
+      // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
       type StatusSets = {
         active: Set<'running' | 'pending'>
         inactive: Set<'stopped' | 'paused'>
@@ -295,6 +296,8 @@ describe('Set Object Support', () => {
     })
 
     it('should work with mixed Set and array types', () => {
+      // Using type instead of interface to get implicit index signature
+      // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
       type MixedSets = {
         numbers: Set<1 | 2>
         strings: readonly ['a', 'b']
@@ -335,6 +338,8 @@ describe('Set Object Support', () => {
     })
 
     it('should handle state machine with Sets', () => {
+      // Using type instead of interface to get implicit index signature
+      // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
       type States = {
         idle: Set<never>
         loading: Set<'fetching' | 'processing'>

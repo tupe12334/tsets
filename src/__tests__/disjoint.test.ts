@@ -85,6 +85,8 @@ describe('Disjoint Union Types', () => {
 
   describe('ArePairwiseDisjoint', () => {
     it('should return true for disjoint sets', () => {
+      // Using type instead of interface to get implicit index signature
+      // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
       type DisjointSets = {
         a: readonly ['x', 'y']
         b: readonly ['z', 'w']
@@ -95,6 +97,8 @@ describe('Disjoint Union Types', () => {
     })
 
     it('should return false for overlapping sets', () => {
+      // Using type instead of interface to get implicit index signature
+      // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
       type OverlappingSets = {
         a: readonly ['x', 'y']
         b: readonly ['y', 'z']
@@ -128,6 +132,8 @@ describe('Disjoint Union Types', () => {
 
   describe('StateMachine', () => {
     it('should create state machine from states record', () => {
+      // Using type instead of interface to get implicit index signature
+      // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
       type LoadingStates = {
         idle: readonly []
         loading: readonly [string]

@@ -22,7 +22,9 @@
     "Equale",
     "biconditional",
     "superadmin",
-    "Unindexed"
+    "Unindexed",
+    "Nums",
+    "Strs"
   ],
   "languageSettings": [
     {

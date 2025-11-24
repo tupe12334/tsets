@@ -60,7 +60,7 @@ export type DisjointUnion<T extends Record<string, SetLike<unknown>>> = {
  * // Result: { readonly tag: 'success'; readonly value: 'completed'; }
  * ```
  */
-export type TaggedValue<Tag extends string | number | symbol, Value> = {
+export interface TaggedValue<Tag extends string | number | symbol, Value> {
   readonly tag: Tag
   readonly value: Value
 }
