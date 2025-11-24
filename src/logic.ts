@@ -5,9 +5,9 @@
 
 /**
  * Logical AND operation
- * 
+ *
  * **Mathematical Definition:** A ∧ B is true if both A and B are true
- * 
+ *
  * @template A First boolean type
  * @template B Second boolean type
  * @example
@@ -22,13 +22,13 @@ export type And<A extends boolean, B extends boolean> = A extends true
   ? B extends true
     ? true
     : false
-  : false;
+  : false
 
 /**
  * Logical OR operation
- * 
+ *
  * **Mathematical Definition:** A ∨ B is true if at least one of A or B is true
- * 
+ *
  * @template A First boolean type
  * @template B Second boolean type
  * @example
@@ -42,14 +42,14 @@ export type And<A extends boolean, B extends boolean> = A extends true
 export type Or<A extends boolean, B extends boolean> = A extends true
   ? true
   : B extends true
-  ? true
-  : false;
+    ? true
+    : false
 
 /**
  * Logical NOT operation
- * 
+ *
  * **Mathematical Definition:** ¬A is true if A is false, and false if A is true
- * 
+ *
  * @template A Boolean type to negate
  * @example
  * ```typescript
@@ -57,13 +57,13 @@ export type Or<A extends boolean, B extends boolean> = A extends true
  * type Result2 = Not<false>; // true
  * ```
  */
-export type Not<A extends boolean> = A extends true ? false : true;
+export type Not<A extends boolean> = A extends true ? false : true
 
 /**
  * Logical XOR (exclusive or) operation
- * 
+ *
  * **Mathematical Definition:** A ⊕ B is true if exactly one of A or B is true
- * 
+ *
  * @template A First boolean type
  * @template B Second boolean type
  * @example
@@ -74,13 +74,16 @@ export type Not<A extends boolean> = A extends true ? false : true;
  * type Result4 = Xor<false, false>; // false
  * ```
  */
-export type Xor<A extends boolean, B extends boolean> = Or<And<A, Not<B>>, And<Not<A>, B>>;
+export type Xor<A extends boolean, B extends boolean> = Or<
+  And<A, Not<B>>,
+  And<Not<A>, B>
+>
 
 /**
  * Logical NAND operation
- * 
+ *
  * **Mathematical Definition:** A ↑ B is true if NOT both A and B are true
- * 
+ *
  * @template A First boolean type
  * @template B Second boolean type
  * @example
@@ -91,13 +94,13 @@ export type Xor<A extends boolean, B extends boolean> = Or<And<A, Not<B>>, And<N
  * type Result4 = Nand<false, false>; // true
  * ```
  */
-export type Nand<A extends boolean, B extends boolean> = Not<And<A, B>>;
+export type Nand<A extends boolean, B extends boolean> = Not<And<A, B>>
 
 /**
  * Logical NOR operation
- * 
+ *
  * **Mathematical Definition:** A ↓ B is true if neither A nor B is true
- * 
+ *
  * @template A First boolean type
  * @template B Second boolean type
  * @example
@@ -108,13 +111,13 @@ export type Nand<A extends boolean, B extends boolean> = Not<And<A, B>>;
  * type Result4 = Nor<false, false>; // true
  * ```
  */
-export type Nor<A extends boolean, B extends boolean> = Not<Or<A, B>>;
+export type Nor<A extends boolean, B extends boolean> = Not<Or<A, B>>
 
 /**
  * Logical implication operation
- * 
+ *
  * **Mathematical Definition:** A → B is false only when A is true and B is false
- * 
+ *
  * @template A Antecedent (if part)
  * @template B Consequent (then part)
  * @example
@@ -125,13 +128,13 @@ export type Nor<A extends boolean, B extends boolean> = Not<Or<A, B>>;
  * type Result4 = Implies<false, false>; // true
  * ```
  */
-export type Implies<A extends boolean, B extends boolean> = Or<Not<A>, B>;
+export type Implies<A extends boolean, B extends boolean> = Or<Not<A>, B>
 
 /**
  * Logical biconditional (if and only if) operation
- * 
+ *
  * **Mathematical Definition:** A ↔ B is true if A and B have the same truth value
- * 
+ *
  * @template A First boolean type
  * @template B Second boolean type
  * @example
@@ -142,13 +145,16 @@ export type Implies<A extends boolean, B extends boolean> = Or<Not<A>, B>;
  * type Result4 = Iff<false, false>; // true
  * ```
  */
-export type Iff<A extends boolean, B extends boolean> = And<Implies<A, B>, Implies<B, A>>;
+export type Iff<A extends boolean, B extends boolean> = And<
+  Implies<A, B>,
+  Implies<B, A>
+>
 
 /**
  * N-ary AND operation for multiple boolean values
- * 
+ *
  * **Mathematical Definition:** ⋀ᵢ Aᵢ is true if all Aᵢ are true
- * 
+ *
  * @template Bools Tuple of boolean types
  * @example
  * ```typescript
@@ -157,21 +163,22 @@ export type Iff<A extends boolean, B extends boolean> = And<Implies<A, B>, Impli
  * type Result3 = AllTrue<[]>;                     // true (vacuous truth)
  * ```
  */
-export type AllTrue<Bools extends readonly boolean[]> = Bools extends readonly []
-  ? true
-  : Bools extends readonly [infer Head, ...infer Tail]
-  ? Tail extends readonly boolean[]
-    ? Head extends true
-      ? AllTrue<Tail>
+export type AllTrue<Bools extends readonly boolean[]> =
+  Bools extends readonly []
+    ? true
+    : Bools extends readonly [infer Head, ...infer Tail]
+      ? Tail extends readonly boolean[]
+        ? Head extends true
+          ? AllTrue<Tail>
+          : false
+        : false
       : false
-    : false
-  : false;
 
 /**
  * N-ary OR operation for multiple boolean values
- * 
+ *
  * **Mathematical Definition:** ⋁ᵢ Aᵢ is true if at least one Aᵢ is true
- * 
+ *
  * @template Bools Tuple of boolean types
  * @example
  * ```typescript
@@ -180,21 +187,22 @@ export type AllTrue<Bools extends readonly boolean[]> = Bools extends readonly [
  * type Result3 = AnyTrue<[]>;                     // false
  * ```
  */
-export type AnyTrue<Bools extends readonly boolean[]> = Bools extends readonly []
-  ? false
-  : Bools extends readonly [infer Head, ...infer Tail]
-  ? Tail extends readonly boolean[]
-    ? Head extends true
-      ? true
-      : AnyTrue<Tail>
-    : false
-  : false;
+export type AnyTrue<Bools extends readonly boolean[]> =
+  Bools extends readonly []
+    ? false
+    : Bools extends readonly [infer Head, ...infer Tail]
+      ? Tail extends readonly boolean[]
+        ? Head extends true
+          ? true
+          : AnyTrue<Tail>
+        : false
+      : false
 
 /**
  * Type-level assertion that a type is true
- * 
+ *
  * **Mathematical Definition:** Asserts that the proposition is true at compile time
- * 
+ *
  * @template T Boolean type that should be true
  * @example
  * ```typescript
@@ -202,13 +210,13 @@ export type AnyTrue<Bools extends readonly boolean[]> = Bools extends readonly [
  * type Test2 = IsTrue<false>; // false
  * ```
  */
-export type IsTrue<T extends boolean> = T extends true ? true : false;
+export type IsTrue<T extends boolean> = T extends true ? true : false
 
 /**
  * Type-level assertion that a type is false
- * 
+ *
  * **Mathematical Definition:** Asserts that the proposition is false at compile time
- * 
+ *
  * @template T Boolean type that should be false
  * @example
  * ```typescript
@@ -216,13 +224,13 @@ export type IsTrue<T extends boolean> = T extends true ? true : false;
  * type Test2 = IsFalse<true>; // false
  * ```
  */
-export type IsFalse<T extends boolean> = T extends false ? true : false;
+export type IsFalse<T extends boolean> = T extends false ? true : false
 
 /**
  * Conditional type selection based on boolean condition
- * 
+ *
  * **Mathematical Definition:** If-then-else construct for types
- * 
+ *
  * @template Condition Boolean condition type
  * @template TrueType Type to select if condition is true
  * @template FalseType Type to select if condition is false
@@ -235,5 +243,5 @@ export type IsFalse<T extends boolean> = T extends false ? true : false;
 export type If<
   Condition extends boolean,
   TrueType,
-  FalseType
-> = Condition extends true ? TrueType : FalseType;
+  FalseType,
+> = Condition extends true ? TrueType : FalseType

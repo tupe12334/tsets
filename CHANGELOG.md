@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+
 - Migrated from npm to pnpm for better performance and disk space efficiency
 - Updated all documentation to include pnpm commands alongside npm
 - Updated release-it configuration to use pnpm commands
@@ -25,12 +26,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Type Assertions**: IsTrue, IsFalse, If-then-else conditional types
 - **Disjoint Unions**: TaggedValue, DisjointUnion, PatternMatcher
 - **Utility Types**: Result<S,E>, Option<T>, StateMachine, EmptySet, Singleton
-- **Enhanced Operations**: 
+- **Enhanced Operations**:
   - `Equale<A,B>` - Enhanced equality checking
   - `IsDisjointUnion<A,B,C>` - Multi-set disjoint validation
   - `AreAllDisjoint<[Sets...]>` - Variadic disjoint checking
 - **Complex Validation Support**:
-  - `IsTrue<And<Equale<Union<A,B>,C>,Equale<Intersection<A,B>,EmptySet>>>` 
+  - `IsTrue<And<Equale<Union<A,B>,C>,Equale<Intersection<A,B>,EmptySet>>>`
   - Multi-condition logical expressions with compile-time validation
 - **Types-only Library**: Zero runtime overhead, pure compile-time operations
 - **Rich Documentation**: Comprehensive JSDoc with mathematical notation and examples

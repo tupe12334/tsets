@@ -1,0 +1,43 @@
+{
+  "version": "0.2",
+  "language": "en,he",
+  "words": [
+    "tsets",
+    "pnpm",
+    "vitest",
+    "husky",
+    "eslint",
+    "tsconfig",
+    "esbenp",
+    "tupe",
+    "kiro",
+    "typeof",
+    "readonly",
+    "keyof",
+    "infer",
+    "disjoint",
+    "disjointness",
+    "Nand",
+    "NAND",
+    "Equale",
+    "biconditional",
+    "superadmin",
+    "Unindexed"
+  ],
+  "languageSettings": [
+    {
+      "languageId": "*",
+      "locale": "en,he"
+    }
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "coverage",
+    "pnpm-lock.yaml",
+    "*.min.js",
+    ".claude",
+    ".kiro",
+    ".git"
+  ]
+}

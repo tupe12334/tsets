@@ -1,26 +1,27 @@
 /**
  * @fileoverview TSets - TypeScript library for mathematical set operations
- * 
+ *
  * This library provides compile-time type checking for set theory operations
  * using TypeScript's type system. All operations are performed at compile-time
  * with zero runtime overhead.
- * 
+ *
  * @author TSets Contributors
  * @version 1.0.0
  */
 
 // Core set type definitions with mathematical notation
-export * from './types';
+export * from './types'
 
 // Disjoint union and tagged union types
-export * from './disjoint';
+export * from './disjoint'
 
 // Logical operations and boolean algebra
-export * from './logic';
+export * from './logic'
 
 // Re-export commonly used types for convenience
 export type {
   SetLike,
+  ElementType,
   Union,
   Intersection,
   Difference,
@@ -35,8 +36,8 @@ export type {
   SymmetricDifference,
   SetComplement,
   IsDisjointUnion,
-  AreAllDisjoint
-} from './types';
+  AreAllDisjoint,
+} from './types'
 
 export type {
   DisjointUnion,
@@ -49,8 +50,8 @@ export type {
   Option,
   StateMachine,
   EmptySet,
-  Singleton
-} from './disjoint';
+  Singleton,
+} from './disjoint'
 
 export type {
   And,
@@ -65,5 +66,5 @@ export type {
   AnyTrue,
   IsTrue,
   IsFalse,
-  If
-} from './logic';
+  If,
+} from './logic'
